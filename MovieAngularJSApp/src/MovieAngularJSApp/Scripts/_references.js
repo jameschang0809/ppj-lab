@@ -6,6 +6,7 @@
 /// <reference path="../wwwroot/js/app.js" />
 /// <reference path="../wwwroot/js/site.min.js" />
 /// <reference path="../wwwroot/lib/angular/angular.js" />
+/// <reference path="../wwwroot/lib/angular-bootstrap/ui-bootstrap-tpls.js" />
 /// <reference path="../wwwroot/lib/angular-resource/angular-resource.js" />
 /// <reference path="../wwwroot/lib/angular-route/angular-route.js" />
 /// <reference path="../wwwroot/lib/bootstrap/dist/js/bootstrap.js" />

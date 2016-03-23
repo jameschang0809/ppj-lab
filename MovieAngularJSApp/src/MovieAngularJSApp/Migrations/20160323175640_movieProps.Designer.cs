@@ -8,9 +8,10 @@ using MovieAngularJSApp.Models;
 namespace MovieAngularJSApp.Migrations
 {
     [DbContext(typeof(MoviesAppContext))]
-    partial class MoviesAppContextModelSnapshot : ModelSnapshot
+    [Migration("20160323175640_movieProps")]
+    partial class movieProps
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "7.0.0-rc1-16348")

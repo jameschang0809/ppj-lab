@@ -34,23 +34,28 @@ namespace MovieAngularJSApp.API
         [HttpPost]
         public IActionResult Post([FromBody]Movie movie)
         {
-            if (movie.Id == 0)
+            if (ModelState.IsValid)
             {
-                _dbContext.Movies.Add(movie);
-                _dbContext.SaveChanges();
-                return new ObjectResult(movie);
-            }
-            else
-            {
-                var original = _dbContext.Movies.FirstOrDefault(x => x.Id == movie.Id);
-                if (original == null)
-                    return new HttpNotFoundResult();
+                if (movie.Id == 0)
+                {
+                    _dbContext.Movies.Add(movie);
+                    _dbContext.SaveChanges();
+                    return new ObjectResult(movie);
+                }
+                else
+                {
+                    var original = _dbContext.Movies.FirstOrDefault(x => x.Id == movie.Id);
+                    if (original == null)
+                        return new HttpNotFoundResult();
 
-                original.Title = movie.Title;
-                original.Director = movie.Director;
-                _dbContext.SaveChanges();
-                return new ObjectResult(original);
+                    original.Title = movie.Title;
+                    original.Director = movie.Director;
+                    _dbContext.SaveChanges();
+                    return new ObjectResult(original);
+                }
             }
+
+            return new BadRequestObjectResult(ModelState);
         }
 
         [HttpDelete("{id:int}")]
