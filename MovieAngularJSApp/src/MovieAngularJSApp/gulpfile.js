@@ -18,7 +18,7 @@ paths.minCss = paths.webroot + 'css/**/*.min.css';
 paths.concatJsDest = paths.webroot + 'js/site.min.js';
 paths.concatCssDest = paths.webroot + 'css/site.min.css';
 
-paths.scripts = ['./Scripts/**/*.js'];
+paths.scripts = ['./Scripts/**/*.js', '!./Scripts/_references.js'];
 paths.concatMinScriptDest = paths.webroot + 'js/app.min.js';
 paths.concatScriptDest = paths.webroot + 'js/app.js';
 
@@ -31,13 +31,6 @@ gulp.task('clean:css', function (cb) {
 });
 
 gulp.task('clean', ['clean:js', 'clean:css']);
-
-gulp.task('min:js', function () {
-    return gulp.src([paths.js, '!' + paths.minJs], { base: '.' })
-        .pipe(concat(paths.concatJsDest))
-        .pipe(uglify())
-        .pipe(gulp.dest('.'));
-});
 
 gulp.task('min:scripts', function () {
     return gulp.src(paths.scripts, { base: '.' })
@@ -59,6 +52,6 @@ gulp.task('concat:scripts', function () {
         .pipe(gulp.dest('.'));
 });
 
-gulp.task('min', ['min:js', 'min:css', 'min:scripts']);
+gulp.task('min', ['min:css', 'min:scripts']);
 
 gulp.task('concat', ['concat:scripts']);

@@ -1,24 +1,10 @@
-/// <autosync enabled="true" />
-/// <reference path="../gulpfile.js" />
-/// <reference path="app.js" />
-/// <reference path="Controllers/moviesController.js" />
-/// <reference path="Services/moviesService.js" />
-/// <reference path="../wwwroot/js/app.js" />
-/// <reference path="../wwwroot/js/site.min.js" />
-/// <reference path="../wwwroot/lib/angular/angular.js" />
-/// <reference path="../wwwroot/lib/angular-bootstrap/ui-bootstrap-tpls.js" />
-/// <reference path="../wwwroot/lib/angular-resource/angular-resource.js" />
-/// <reference path="../wwwroot/lib/angular-route/angular-route.js" />
-/// <reference path="../wwwroot/lib/bootstrap/dist/js/bootstrap.js" />
-/// <reference path="../wwwroot/lib/jquery/dist/jquery.js" />
-
 (function () {
     'use strict';
 
     Config.$inject = ['$routeProvider', '$locationProvider'];
 
     angular.module('moviesApp', [
-        'ngRoute', 'MoviesService'
+        'ngRoute', 'ngAnimate', 'ui.bootstrap', 'MoviesService'
     ]).config(Config);
 
     function Config($routeProvider, $locationProvider) {

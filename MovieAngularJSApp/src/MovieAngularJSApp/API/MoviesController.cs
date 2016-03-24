@@ -50,6 +50,8 @@ namespace MovieAngularJSApp.API
 
                     original.Title = movie.Title;
                     original.Director = movie.Director;
+                    original.TicketPrice = movie.TicketPrice;
+                    original.ReleaseDate = movie.ReleaseDate;
                     _dbContext.SaveChanges();
                     return new ObjectResult(original);
                 }
